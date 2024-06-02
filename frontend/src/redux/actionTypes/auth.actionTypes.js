@@ -1,0 +1,9 @@
+export const SET_USER = 'SET_USER';
+export const CLEAR_USER = 'CLEAR_USER';
+export const AUTH_ERROR = 'AUTH_ERROR';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const AUTH_LOADING = 'AUTH_LOADING';
+export const CLEAR_AUTH_LOADING = 'CLEAR_AUTH_LOADING';
+
