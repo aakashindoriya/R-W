@@ -26,8 +26,8 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={4} maxW="sm">
-      <Image src={product.image} alt={product.name} />
+    <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={4} maxW="sm"  justifyContent="center" alignItems="center">
+      <Image src={product.image} alt={product.name} minW={"100%"}/>
       <Text mt={2} fontSize="xl" fontWeight="semibold" as="h4" lineHeight="tight">
         {product.name}
       </Text>

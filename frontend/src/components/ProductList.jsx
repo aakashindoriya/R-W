@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, SimpleGrid, useToast, Skeleton,Text } from '@chakra-ui/react';
+import { Box, SimpleGrid, useToast, Skeleton, Text } from '@chakra-ui/react';
 import { getProducts } from '../redux/actions/product.action';
 import ProductCard from './ProductCard';
+import { getCart } from '../redux/actions/cart.action';
 
 const ProductsList = () => {
   const dispatch = useDispatch();
@@ -10,13 +11,14 @@ const ProductsList = () => {
   const toast = useToast();
 
   useEffect(() => {
-    dispatch(getProducts(toast));
+    dispatch(getProducts());
+    dispatch(getCart(toast));
   }, [dispatch]);
 
   if (loading) {
     return (
-      <SimpleGrid columns={5} spacing={5}>
-        {Array(5).fill("").map((_, index) => (
+      <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4, xl: 5 }} spacing={5}>
+        {Array(20).fill("").map((_, index) => (
           <Skeleton key={index} height="200px" />
         ))}
       </SimpleGrid>
@@ -28,7 +30,7 @@ const ProductsList = () => {
   }
 
   return (
-    <SimpleGrid columns={5} spacing={5}>
+    <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4, xl: 5 }} spacing={5}>
       {products.map(product => (
         <ProductCard key={product._id} product={product} />
       ))}
