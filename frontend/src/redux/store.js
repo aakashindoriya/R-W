@@ -8,6 +8,8 @@ import {
 } from 'redux';
 import setAuthToken from '../utils/auth';
 import authReducer from './reducers/auth.reducer';
+import productReducer from './reducers/product.reducer';
+import cartReducer from './reducers/cart.reducer';
 
 // Initialize token
 if (localStorage.token) {
@@ -15,7 +17,9 @@ if (localStorage.token) {
 }
 
 const root=combineReducers({
-   auth:authReducer
+   auth:authReducer,
+   product:productReducer,
+   cart:cartReducer
 })
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

@@ -11,7 +11,7 @@ import {
   
   const initialState = {
     user: null,
-    isAuthenticated: false,
+    isAuthenticated: localStorage.getItem('token')?true:false,
     loading: false, // Initial loading state
     error: null,
     token: localStorage.getItem('token'), // Initialize token from local storage
@@ -50,7 +50,7 @@ import {
           isAuthenticated: true,
           loading: false,
           error: null,
-          token: action.payload.token,
+          token: action.payload,
         };
       case LOGOUT_SUCCESS:
         return {
