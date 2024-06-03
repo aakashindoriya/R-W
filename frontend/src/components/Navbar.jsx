@@ -150,7 +150,7 @@ const Navbar = () => {
               </IconButton>
             </Link>
             {
-                !auth&&<>
+                auth?<Button colorScheme="teal" onClick={handleLogout}>LogOut</Button>:<>
                 <Link to="/login">
                     <Button colorScheme="teal" mr={4}>Login</Button>
                 </Link>
@@ -160,7 +160,7 @@ const Navbar = () => {
                 </>
             }
             
-                    <Button colorScheme="teal" onClick={handleLogout}>LogOut</Button>
+                    
                 
           </Flex>
         )}

@@ -6,12 +6,16 @@ import { getCart, changeQuantity, deleteItem } from '../redux/actions/cart.actio
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const auth=useSelector(state=>state.auth.isAuthenticated)
   const { items, loading, error } = useSelector(state => state.cart);
   const toast = useToast();
 
   useEffect(() => {
-    dispatch(getCart(toast));
-  }, [dispatch]);
+    
+    if(auth){
+        dispatch(getCart(toast));
+    }
+  }, [auth]);
 
   const handleIncreaseQuantity = (item) => {
     dispatch(changeQuantity(item._id, item.quantity + 1, toast));

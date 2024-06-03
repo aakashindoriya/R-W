@@ -8,11 +8,14 @@ import { getCart } from '../redux/actions/cart.action';
 const ProductsList = () => {
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector(state => state.product);
+  const auth=useSelector(state=>state.auth.isAuthenticated)
   const toast = useToast();
 
   useEffect(() => {
     dispatch(getProducts());
-    dispatch(getCart(toast));
+    if(auth){
+      dispatch(getCart(toast));
+    }
   }, [dispatch]);
 
   if (loading) {

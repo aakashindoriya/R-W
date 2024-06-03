@@ -48,7 +48,7 @@ export const register= (userData,toast) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: AUTH_ERROR,
-      payload: err.response.data,
+      payload: err?.response?.data,
     });
     toast({
       title: 'Registration failed.',
@@ -83,7 +83,7 @@ export const loginUser = (userData,toast) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: AUTH_ERROR,
-      payload: err.response.data,
+      payload: err?.response?.data,
     });
     toast({
       title: 'Login failed.',
